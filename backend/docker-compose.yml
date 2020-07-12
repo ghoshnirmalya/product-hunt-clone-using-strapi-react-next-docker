@@ -1,0 +1,30 @@
+version: '3'
+
+services:
+  strapi:
+    container_name: product-hunt-backend
+    image: strapi/strapi
+    environment:
+      DATABASE_CLIENT: postgres
+      DATABASE_NAME: strapi
+      DATABASE_HOST: postgres
+      DATABASE_PORT: 5432
+      DATABASE_USERNAME: strapi
+      DATABASE_PASSWORD: strapi
+    links:
+      - postgres:postgres
+    volumes:
+      - ./app:/srv/app
+    ports:
+      - '1337:1337'
+
+  postgres:
+    container_name: product-hunt-db
+    image: postgres
+    environment:
+      POSTGRES_USER: strapi
+      POSTGRES_PASSWORD: strapi
+    volumes:
+      - ./data:/data/postgres
+    ports:
+      - '5432:5432'
