@@ -1,7 +1,8 @@
-import { ThemeProvider, CSSReset, theme } from "@chakra-ui/core";
+import { ThemeProvider, CSSReset, theme, Box } from "@chakra-ui/core";
 import Navbar from "@/components/navbar";
 import { SWRConfig } from "swr";
 import fetcher from "lib/fetcher";
+import DefaultLayout from "@/components/layouts";
 
 const App = ({ Component, pageProps }) => {
   return (
@@ -13,7 +14,9 @@ const App = ({ Component, pageProps }) => {
         }}
       >
         <Navbar />
-        <Component {...pageProps} />
+        <DefaultLayout>
+          <Component {...pageProps} />
+        </DefaultLayout>
       </SWRConfig>
     </ThemeProvider>
   );

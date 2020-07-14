@@ -1,18 +1,17 @@
-import React from "react";
+import React, { FC } from "react";
 import { Box, Link as _Link, Button, Stack } from "@chakra-ui/core";
-import { NextComponentType } from "next";
 import Link from "next/link";
 
-const Navbar: NextComponentType = () => {
+const Navbar: FC = () => {
   return (
-    <Box>
+    <Box pos="relative" shadow="md">
       <Box
-        w="full"
+        maxW="4xl"
         mx="auto"
         d="flex"
         justifyContent="space-between"
-        p={4}
-        borderWidth={1}
+        py={4}
+        px={[8, 8, 8, 0]}
       >
         <Stack
           isInline
